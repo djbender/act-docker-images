@@ -24,13 +24,13 @@ COPY ./linux/${DISTRO}/scripts /imagegeneration/installers
 RUN /imagegeneration/installers/${TYPE}.sh
 
 ARG BUILD_TAG
-ARG BUILD_REF="master"
+ARG BUILD_REF="main"
 ARG BUILD_TAG_VERSION="dev"
 
-LABEL org.opencontainers.image.vendor="catthehacker"
-LABEL org.opencontainers.image.authors="me@hackerc.at"
-LABEL org.opencontainers.image.url="https://github.com/catthehacker/docker_images/tree/${BUILD_REF}/linux/${DISTRO}/${TYPE}/"
-LABEL org.opencontainers.image.source="https://github.com/catthehacker/docker_images"
+LABEL org.opencontainers.image.vendor="djbender"
+LABEL org.opencontainers.image.authors="Derek Bender"
+LABEL org.opencontainers.image.url="https://github.com/djbender/act-docker-images/tree/${BUILD_REF}/linux/${DISTRO}/${TYPE}/"
+LABEL org.opencontainers.image.source="https://github.com/djbender/act-docker-images"
 LABEL org.opencontainers.image.version=${BUILD_TAG_VERSION}
 LABEL org.opencontainers.image.title=${BUILD_TAG}-${TARGETARCH}
 LABEL org.opencontainers.image.revision=${BUILD_REF}

@@ -81,10 +81,24 @@ printf "\n\t🐋 Installing docker cli 🐋\t\n"
 curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 apt-add-repository "https://packages.microsoft.com/ubuntu/${FROM_TAG}/prod"
 apt-get -yq update
-apt-get -yq install --no-install-recommends moby-cli moby-buildx
+
+if [[ "${FROM_TAG}" == "16.04" || "${FROM_TAG}" == "18.04" ]]; then
+  apt-get -yq install --no-install-recommends moby-cli moby-buildx
+  curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-"$(uname -s)"-"$(uname -m)" | sudo tee /usr/local/bin/docker-compose >/dev/null
+  sudo chmod +x /usr/local/bin/docker-compose
+else
+  apt-get -yq install --no-install-recommends moby-cli moby-compose moby-buildx
+fi
 
 printf "\n\t🐋 Installed moby-cli 🐋\t\n"
 docker -v
+
+printf "\n\t🐋 Installed moby-compose 🐋\t\n"
+if [[ "${FROM_TAG}" == "16.04" || "${FROM_TAG}" == "18.04" ]]; then
+  docker-compose version
+else
+  docker compose version
+fi
 
 printf "\n\t🐋 Installed moby-buildx 🐋\t\n"
 docker buildx version
