@@ -3,7 +3,7 @@ name: Lint Code Base
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
   pull_request:
   workflow_dispatch:
 
@@ -19,7 +19,7 @@ jobs:
       - name: Lint
         uses: megalinter/megalinter/flavors/documentation@v5.13.0
         env:
-          DEFAULT_BRANCH: master
+          DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: false
           GITHUB_STATUS_REPORTER: ${{ !env.ACT }}

@@ -110,6 +110,13 @@ apt-get -yq install --no-install-recommends --no-install-suggests moby-cli moby-
 printf "\n\t🐋 Installed moby-cli 🐋\t\n"
 docker -v
 
+printf "\n\t🐋 Installed moby-compose 🐋\t\n"
+if [[ "${FROM_TAG}" == "16.04" || "${FROM_TAG}" == "18.04" ]]; then
+  docker-compose version
+else
+  docker compose version
+fi
+
 printf "\n\t🐋 Installed moby-buildx 🐋\t\n"
 docker buildx version
 IFS=' ' read -r -a NODE <<<"$NODE_VERSION"
