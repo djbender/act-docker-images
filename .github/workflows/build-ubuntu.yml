@@ -35,6 +35,9 @@ jobs:
       max-parallel: 4
       matrix:
         TAG: [latest, 20.04, 18.04, 16.04]
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Login to GitHub Container Registry
         id: ghcr
