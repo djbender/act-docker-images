@@ -119,7 +119,7 @@ npm -v
 
 
 printf "\n\t🐋 Installing aws 🐋\t\n"
-apt-get install -y --no-install-recommend awscli
+apt-get install -y --no-install-recommends awscli
 
 printf "\n\t🐋 Installed aws 🐋\t\n"
 aws --version
