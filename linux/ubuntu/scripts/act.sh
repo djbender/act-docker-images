@@ -117,6 +117,13 @@ node -v
 printf "\n\t🐋 Installed NPM 🐋\t\n"
 npm -v
 
+
+printf "\n\t🐋 Installing aws 🐋\t\n"
+apt-get install -y --no-install-recommend awscli
+
+printf "\n\t🐋 Installed aws 🐋\t\n"
+aws --version
+
 printf "\n\t🐋 Cleaning image 🐋\t\n"
 apt-get clean
 rm -rf /var/cache/* /var/log/* /var/lib/apt/lists/* /tmp/* || echo 'Failed to delete directories'
