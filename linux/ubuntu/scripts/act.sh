@@ -117,7 +117,6 @@ node -v
 printf "\n\t🐋 Installed NPM 🐋\t\n"
 npm -v
 
-
 printf "\n\t🐋 Installing aws 🐋\t\n"
 apt-get install -y --no-install-recommends awscli
 
