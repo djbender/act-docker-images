@@ -7,10 +7,6 @@ on:
     paths:
       - '.github/workflows/build-ubuntu.yml'
       - 'linux/ubuntu/**'
-  pull_request:
-    paths:
-      - '.github/workflows/build-ubuntu.yml'
-      - 'linux/ubuntu/**'
   workflow_dispatch:
 
 env:
